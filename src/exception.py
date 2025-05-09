@@ -1,5 +1,5 @@
 import sys
-import traceback
+from src.logger import logger  # Import your custom logger
 
 def error_message_detail(error, error_details: sys):
     _, _, exc_tb = error_details.exc_info()
@@ -12,9 +12,17 @@ def error_message_detail(error, error_details: sys):
 
 class CustomException(Exception):
     def __init__(self, error_message, error_detail: sys):
+        # Call base class constructor
         super().__init__(error_message)
+        # Generate detailed message
         self.error_message = error_message_detail(error_message, error_detail)
+        # Log the error message to your log file
+        logger.error(self.error_message)
 
     def __str__(self):
         return self.error_message
-
+if __name__ == "__main__":
+    try:
+        a = 1 / 0  # This will raise ZeroDivisionError
+    except Exception as e:
+        raise CustomException(e, sys)
