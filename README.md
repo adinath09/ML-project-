@@ -137,7 +137,7 @@ All dependencies are listed in the `requirements.txt` file.
 
 ## 🙋‍♂️ Author
 
-* [Your Name](https://github.com/adinath09)
+* [Adinath Nage](https://github.com/adinath09)
 * Email: adinathnage939@gmail.com
 
 ---
